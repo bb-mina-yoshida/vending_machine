@@ -1,0 +1,24 @@
+.top {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.enterBtn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.enterBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.enterBtn:hover {
+    background-color: darkblue;
+}
