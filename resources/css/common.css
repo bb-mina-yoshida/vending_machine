@@ -10,7 +10,7 @@
     margin-top: 20px;
 }
 
-.enterBtn {
+.btn-common {
     display: inline-block;
     padding: 10px 20px;
     background-color: blue;
@@ -19,6 +19,6 @@
     border-radius: 5px;
 }
 
-.enterBtn:hover {
+.btn-common:hover {
     background-color: darkblue;
 }
