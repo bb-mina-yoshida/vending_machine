@@ -1,6 +1,6 @@
 @vite('resources/css/common.css')
 
-<div class="top">
+<div class="title">
     <label>アイテム屋さん</label>
 </div>
 <div class="enterBtn-container">
