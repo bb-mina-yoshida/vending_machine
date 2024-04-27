@@ -79,9 +79,9 @@
         <input id="remaining-amount" class="col-3 form-control" type="text" readonly>
 
 
-        <div class="back" style="margin-top: 10px">
-            <a class="btn-red">購入</a>
-    </div>
+        <div class="purchase" style="margin-top: 10px">
+            <a class="btn-red" id="purchase" >購入</a>
+        </div>
 </div>
 
 @vite('resources/js/purchase.js')
