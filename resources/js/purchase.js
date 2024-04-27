@@ -24,10 +24,28 @@ $(document).ready(function() {
 
     // ページ読み込み時、合計金額を計算して表示する
     updateTotalPrice();
+    $('#remaining-amount').val(2000);
 });
 
-$('#purchase').on('click', function() {
+// function MoneyCalc(){
 
-    // ここに購入処理のコードを記述
+// }
+
+$('#purchase').on('click', function() {
+    var totalPrice = parseInt($('#total-price').val(), 10);
+    var money = parseInt($('#remaining-amount').val(), 10);
+
+    if (totalPrice === 0 || isNaN(totalPrice)) {
+        alert("商品を選択してください");
+        return;
+    }
+
+    if (totalPrice > money) {
+        alert("お金が足りません！");
+        return;
+    }
+
+    var moneyCalc = money - totalPrice;
+    $('#remaining-amount').val(moneyCalc);
     alert("購入しました。");
 });

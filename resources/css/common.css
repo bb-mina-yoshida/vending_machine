@@ -46,3 +46,7 @@ html{
 .btn-red:hover {
     background-color: rgb(226, 130, 130);
 }
+
+.text-int{
+    text-align: right;
+}

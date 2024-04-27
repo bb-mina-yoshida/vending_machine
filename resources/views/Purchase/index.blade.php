@@ -73,10 +73,10 @@
         </table>    
     </div>
         <label>合計金額</label>
-        <input id="total-price" class="col-3 form-control" type="text" onchange="calc" readonly>
+        <input id="total-price" class="col-2 form-control text-int" type="text" onchange="calc" readonly>
 
         <label>残金</label>
-        <input id="remaining-amount" class="col-3 form-control" type="text" readonly>
+        <input id="remaining-amount" class="col-2 form-control text-int" type="text" readonly>
 
 
         <div class="purchase" style="margin-top: 10px">
