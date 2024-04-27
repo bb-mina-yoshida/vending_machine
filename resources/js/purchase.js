@@ -27,9 +27,6 @@ $(document).ready(function() {
     $('#remaining-amount').val(2000);
 });
 
-// function MoneyCalc(){
-
-// }
 
 $('#purchase').on('click', function() {
     var totalPrice = parseInt($('#total-price').val(), 10);
