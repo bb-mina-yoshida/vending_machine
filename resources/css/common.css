@@ -1,3 +1,13 @@
+html{
+    margin-left: 10px;
+    /* background-color: rgb(206, 220, 223); */
+
+}
+
+/* .back-color{
+    background-color: rgb(206, 220, 223);
+} */
+
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -13,12 +23,26 @@
 .btn-common {
     display: inline-block;
     padding: 10px 20px;
-    background-color: blue;
-    color: white;
+    background-color: rgba(47, 122, 192, 0.859);
+    color:white;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .btn-common:hover {
-    background-color: darkblue;
+    background-color: rgb(130, 181, 226);
+}
+
+.btn-red{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(192, 47, 47, 0.859);
+    color:white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.btn-buy:hover {
+    background-color: rgb(226, 130, 130);
 }
