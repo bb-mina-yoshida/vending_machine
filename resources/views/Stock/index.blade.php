@@ -71,8 +71,10 @@
 </div>
 
 <div class="Stock">
-    <a class="btn-red">更新</a>
+    <a class="btn-red" id="update">更新</a>
 </div>
+
+@vite('resources/js/stock.js')
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

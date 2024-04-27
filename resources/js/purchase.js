@@ -25,3 +25,9 @@ $(document).ready(function() {
     // ページ読み込み時、合計金額を計算して表示する
     updateTotalPrice();
 });
+
+$('#purchase').on('click', function() {
+
+    // ここに購入処理のコードを記述
+    alert("購入しました。");
+});
