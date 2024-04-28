@@ -1,4 +1,43 @@
+
+<?php
+
+// mysql接続
+$link = mysqli_connect('mysql', 'root', 'password', 'vending-machine');
+ 
+    // stockテーブルからstock_numカラムの情報を取得するクエリ
+    $query1 = "SELECT stock_num FROM stock WHERE id = 1";
+    $query2 = "SELECT stock_num FROM stock WHERE id = 2";
+    $query3 = "SELECT stock_num FROM stock WHERE id = 3";
+
+    // クエリを実行し、結果を取得する
+    $result1 = mysqli_query($link, $query1);
+    $result2 = mysqli_query($link, $query2);
+    $result3 = mysqli_query($link, $query3);
+
+
+// 結果が正常に取得できたかどうかをチェックする
+if (!$result1) {
+    echo "クエリ実行エラー: " . mysqli_error($link) . PHP_EOL;
+    exit;
+}
+
+if (!$result2) {
+    echo "クエリ実行エラー: " . mysqli_error($link) . PHP_EOL;
+    exit;
+}
+
+if (!$result3){
+    echo "クエリ実行エラー:" .mysqli_error($link) . PHP_EOL;
+    exit;
+}
+ 
+// 切断
+mysqli_close($link);
+
+?>
+
 @vite('resources/css/common.css')
+
 
 <div class="back-color">
     <div class="back">
@@ -25,7 +64,14 @@
                     <td>1</td>
                     <td>回復薬</td>
                     <td data-price="250">250</td>
-                    <td>9,999</td>
+                    <td>
+                        <?php
+                        // 結果を画面に表示する
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                            echo "<span>" . $row['stock_num'] . "</span>";
+                        }
+                        ?>
+                    </td>
                     <td>
                     <select class="form-control" id="kaifuku-num">
                         <option>0</option>
@@ -41,7 +87,13 @@
                     <td>2</td>
                     <td>やくそう</td>
                     <td data-price="100">100</td>
-                    <td>9,999</td>
+                    <td>
+                        <?PHP
+                        while($row = mysqli_fetch_assoc($result2)){
+                                echo"<span>" . $row['stock_num'] ."</span>";
+                        }
+                        ?>
+                    </td>
                     <td>
                         <select class="form-control" id="yakusou-num">
                             <option>0</option>
@@ -57,7 +109,13 @@
                     <td>3</td>
                     <td>どくけし</td>
                     <td data-price="120">120</td>
-                    <td>9,999</td>
+                    <td>
+                        <?PHP
+                        while($row = mysqli_fetch_assoc($result3)){
+                            echo"<span>" . $row['stock_num'] . "</span>";
+                        }
+                        ?>
+                    </td>
                     <td>
                         <select class="form-control" id="dokukeshi-num">
                             <option>0</option>
