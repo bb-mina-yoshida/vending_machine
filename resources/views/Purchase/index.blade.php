@@ -11,16 +11,6 @@
     </div>
     <div class="item-purchase" style="margin-top: 10px">
         <table class="table">
-
-            @foreach ($stocks as $stock)
-            @if ($stock->stock_num === 1)
-                <tr>
-                    <td>{{ $stock->stock_name }}</td>
-                </tr>
-            @endif
-
-        @endforeach
-
             <thead>
                 <tr>
                     <th scope="col">NO</th>
@@ -35,7 +25,11 @@
                     <td>1</td>
                     <td>回復薬</td>
                     <td data-price="250">250</td>
-                    <td>9,999</td>
+                    @foreach ($stocks as $stock)
+                        @if ($stock->id === 1)
+                            <td>{{ $stock->stock_num }}</td>
+                        @endif
+                    @endforeach
                     <td>
                     <select class="form-control" id="kaifuku-num">
                         <option>0</option>
@@ -51,7 +45,11 @@
                     <td>2</td>
                     <td>やくそう</td>
                     <td data-price="100">100</td>
-                    <td>9,999</td>
+                    @foreach ($stocks as $stock)
+                        @if ($stock->id === 2)
+                            <td>{{ $stock->stock_num }}</td>
+                        @endif
+                    @endforeach
                     <td>
                         <select class="form-control" id="yakusou-num">
                             <option>0</option>
@@ -67,7 +65,11 @@
                     <td>3</td>
                     <td>どくけし</td>
                     <td data-price="120">120</td>
-                    <td>9,999</td>
+                    @foreach ($stocks as $stock)
+                        @if ($stock->id === 3)
+                            <td>{{ $stock->stock_num }}</td>
+                        @endif
+                    @endforeach
                     <td>
                         <select class="form-control" id="dokukeshi-num">
                             <option>0</option>
