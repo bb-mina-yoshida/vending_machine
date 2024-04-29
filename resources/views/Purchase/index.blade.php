@@ -11,6 +11,16 @@
     </div>
     <div class="item-purchase" style="margin-top: 10px">
         <table class="table">
+
+            @foreach ($stocks as $stock)
+            @if ($stock->stock_num === 1)
+                <tr>
+                    <td>{{ $stock->stock_name }}</td>
+                </tr>
+            @endif
+
+        @endforeach
+
             <thead>
                 <tr>
                     <th scope="col">NO</th>
