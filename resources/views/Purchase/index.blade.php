@@ -1,5 +1,6 @@
 @vite('resources/css/common.css')
 
+
 <div class="back-color">
     <div class="back">
         <a class="btn-common" href="/">帰る</a>
