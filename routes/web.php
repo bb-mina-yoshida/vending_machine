@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use LanguageServer\Index\Index;
 
 Route::get('/', function () {
     return view('TOP.index');
@@ -19,3 +20,6 @@ Route::get('/BuyHistory', function(){
     return view('BuyHistory.index');
 
 });
+
+
+Route::get('/Purchase','App\Http\Controllers\StockController@index');
