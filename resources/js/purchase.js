@@ -44,5 +44,34 @@ $('#purchase').on('click', function() {
 
     var moneyCalc = money - totalPrice;
     $('#remaining-amount').val(moneyCalc);
-    alert("購入しました。");
+
+    var purchaseData = {
+        'totalPrice': totalPrice,
+        'stock': []
+    };
+
+    // 各商品の購入数とIDを取得し、purchaseDataに追加
+    $('.item-purchase select').each(function() {
+        var stockId = $(this).attr('data-id');
+        var stockNum = parseInt($(this).val(), 10);
+        if (stockNum > 0) {
+            purchaseData.stock.push({
+                'id': stockId,
+                'quantity': stockNum
+            });
+        }
+    });
+
+    // Ajaxリクエストを送信
+    $.ajax({
+        type: 'POST',
+        url: '/purchase',
+        data: purchaseData,
+        success: function(response) {
+            alert('購入しました。');
+        },
+        error: function(xhr, status, error) {
+            alert('購入に失敗しました。');
+        }
+    });
 });
