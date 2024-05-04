@@ -13,7 +13,8 @@ class StockController extends Controller
         return view('Purchase.index', ['stocks' => $stocks]);
     }
 
-    public function purchase(Request $request) // Request クラスを使用することを明示
+    // StockController.php
+    public function purchase(Request $request)
     {
         $totalPrice = $request->totalPrice;
         $stocks = $request->stock;

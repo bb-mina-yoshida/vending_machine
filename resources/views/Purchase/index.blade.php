@@ -1,6 +1,5 @@
 @vite('resources/css/common.css')
 
-
 <div class="back-color">
     <div class="back">
         <a class="btn-common" href="/">帰る</a>
@@ -96,8 +95,6 @@
             <a class="btn-red" id="purchase" >購入</a>
         </div>
 </div>
-
-
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
 use LanguageServer\Index\Index;
 
 Route::get('/', function () {
@@ -23,3 +24,6 @@ Route::get('/BuyHistory', function(){
 
 
 Route::get('/Purchase','App\Http\Controllers\StockController@index');
+
+
+Route::post('/Purchase', [StockController::class, 'purchase']);

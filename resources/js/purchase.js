@@ -65,7 +65,7 @@ $('#purchase').on('click', function() {
     // Ajaxリクエストを送信
     $.ajax({
         type: 'POST',
-        url: '/purchase',
+        url: '/Purchase',
         data: purchaseData,
         success: function(response) {
             alert('購入しました。');
