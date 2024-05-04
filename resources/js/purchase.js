@@ -28,7 +28,7 @@ $(document).ready(function() {
 });
 
 
-$('#purchase').on('click', function() {
+$('#purchase').on('click', function () {
     var totalPrice = parseInt($('#total-price').val(), 10);
     var money = parseInt($('#remaining-amount').val(), 10);
 
@@ -51,7 +51,7 @@ $('#purchase').on('click', function() {
     };
 
     // 各商品の購入数とIDを取得し、purchaseDataに追加
-    $('.item-purchase select').each(function() {
+    $('.item-purchase select').each(function () {
         var stockId = $(this).attr('data-id');
         var stockNum = parseInt($(this).val(), 10);
         if (stockNum > 0) {
@@ -67,10 +67,13 @@ $('#purchase').on('click', function() {
         type: 'POST',
         url: '/Purchase',
         data: purchaseData,
-        success: function(response) {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function (response) {
             alert('購入しました。');
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert('購入に失敗しました。');
         }
     });
