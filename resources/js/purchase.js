@@ -1,3 +1,7 @@
+$.ajaxSetup({
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+});
+
 $(document).ready(function() {
 
     function updateTotalPrice() {
@@ -45,31 +49,30 @@ $('#purchase').on('click', function () {
     var moneyCalc = money - totalPrice;
     $('#remaining-amount').val(moneyCalc);
 
+    // 購入データを準備
     var purchaseData = {
-        'totalPrice': totalPrice,
-        'stock': []
+        items: [
+            {
+                id: 1,
+                quantity: parseInt($('#kaifuku-num').val(), 10) 
+            },
+            {
+                id: 2,
+                quantity: parseInt($('#yakusou-num').val(), 10) 
+            },
+            {
+                id: 3,
+                quantity: parseInt($('#dokukeshi-num').val(), 10) 
+            }
+        ]
     };
-
-    // 各商品の購入数とIDを取得し、purchaseDataに追加
-    $('.item-purchase select').each(function () {
-        var stockId = $(this).attr('data-id');
-        var stockNum = parseInt($(this).val(), 10);
-        if (stockNum > 0) {
-            purchaseData.stock.push({
-                'id': stockId,
-                'quantity': stockNum
-            });
-        }
-    });
+    
 
     // Ajaxリクエストを送信
     $.ajax({
         type: 'POST',
         url: '/Purchase',
         data: purchaseData,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-        },
         success: function (response) {
             alert('購入しました。');
         },

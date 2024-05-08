@@ -24,6 +24,4 @@ Route::get('/BuyHistory', function(){
 
 
 Route::get('/Purchase','App\Http\Controllers\StockController@index');
-
-
 Route::post('/Purchase', [StockController::class, 'purchase']);
