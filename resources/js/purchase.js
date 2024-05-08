@@ -53,7 +53,7 @@ $('#purchase').on('click', function () {
 
     $.ajax({
         type: 'POST',
-        url: '/purchase.php', // PHPファイルのパスに変更する
+        url: '/Purchase',
         data: purchaseData,
         success: function (response) {
             alert('購入しました。');
