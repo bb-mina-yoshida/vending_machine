@@ -33,24 +33,8 @@ $(document).ready(function() {
 
 
 $('#purchase').on('click', function () {
-    var totalPrice = parseInt($('#total-price').val(), 10);
-    var money = parseInt($('#remaining-amount').val(), 10);
-
-    if (totalPrice === 0 || isNaN(totalPrice)) {
-        alert("商品を選択してください");
-        return;
-    }
-
-    if (totalPrice > money) {
-        alert("お金が足りません！");
-        return;
-    }
-
-    var moneyCalc = money - totalPrice;
-    $('#remaining-amount').val(moneyCalc);
-
-    // 購入データを準備
     var purchaseData = {
+        csrf_token: $('meta[name="csrf-token"]').attr('content'),
         items: [
             {
                 id: 1,
@@ -66,12 +50,10 @@ $('#purchase').on('click', function () {
             }
         ]
     };
-    
 
-    // Ajaxリクエストを送信
     $.ajax({
         type: 'POST',
-        url: '/Purchase',
+        url: '/purchase.php', // PHPファイルのパスに変更する
         data: purchaseData,
         success: function (response) {
             alert('購入しました。');
