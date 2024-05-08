@@ -55,6 +55,7 @@ $('#purchase').on('click', function () {
         type: 'POST',
         url: '/Purchase',
         data: purchaseData,
+        dataType: 'json', 
         success: function (response) {
             alert('購入しました。');
         },
