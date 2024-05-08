@@ -18,10 +18,9 @@ Route::get('/Stock', function(){
 });
 
 Route::get('/BuyHistory', function(){
-    return view('BuyHistory.index');
+return view('BuyHistory.index');
 
 });
 
-
-Route::get('/Purchase','App\Http\Controllers\StockController@index');
-Route::post('/Purchase', [StockController::class, 'purchase']);
+Route::get('/Purchase', [StockController::class, 'index']);
+Route::post('/Purchase', [StockController::class, 'index']);

@@ -33,29 +33,47 @@ $(document).ready(function() {
 
 
 $('#purchase').on('click', function () {
+    var totalPrice = parseInt($('#total-price').val(), 10);
+    var money = parseInt($('#remaining-amount').val(), 10);
+
+    if (totalPrice === 0 || isNaN(totalPrice)) {
+        alert("商品を選択してください");
+        return;
+    }
+
+    if (totalPrice > money) {
+        alert("お金が足りません！");
+        return;
+    }
+
+    var moneyCalc = money - totalPrice;
+    $('#remaining-amount').val(moneyCalc);
+
+    // 購入データを準備
     var purchaseData = {
-        csrf_token: $('meta[name="csrf-token"]').attr('content'),
-        items: [
-            {
-                id: 1,
-                quantity: parseInt($('#kaifuku-num').val(), 10) 
-            },
-            {
-                id: 2,
-                quantity: parseInt($('#yakusou-num').val(), 10) 
-            },
-            {
-                id: 3,
-                quantity: parseInt($('#dokukeshi-num').val(), 10) 
-            }
-        ]
+        purchaseData: {
+            items: [
+                {
+                    id: 1,
+                    quantity: parseInt($('#kaifuku-num').val(), 10) 
+                },
+                {
+                    id: 2,
+                    quantity: parseInt($('#yakusou-num').val(), 10) 
+                },
+                {
+                    id: 3,
+                    quantity: parseInt($('#dokukeshi-num').val(), 10) 
+                }
+            ]
+        }
     };
 
+    // Ajaxリクエストを送信
     $.ajax({
         type: 'POST',
         url: '/Purchase',
         data: purchaseData,
-        dataType: 'json', 
         success: function (response) {
             alert('購入しました。');
         },
@@ -64,3 +82,5 @@ $('#purchase').on('click', function () {
         }
     });
 });
+
+
