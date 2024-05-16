@@ -12,32 +12,6 @@
 @vite(['resources/js/purchase.js'])
 @vite(['resources/css/common.css'])
 
-<?php
-// POSTリクエストを受け取る
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $host = 'localhost';
-    $dbname = 'vending-machine';
-    $username = 'root';
-    $password = 'password';
-
-    // MySQLiを使用してデータベースに接続
-    $conn = new mysqli($host, $username, $password, $dbname);
-
-    // 購入データの取得
-    $purchaseData = $_POST['purchaseData'];
-
-    // データベースの在庫数を更新
-    foreach ($purchaseData['items'] as $item) {
-        $id = $item['id'];
-        $quantity = $item['quantity'];
-
-        // 在庫数を減らすクエリを実行
-        $stmt = $pdo->prepare('UPDATE stock SET stock_num = stock_num - ? WHERE id = ?');
-        $stmt->execute([$quantity, $id]);
-    }
-}
-?>
-
 <div class="back-color">
     <div class="back">
         <a class="btn-common" href="/">帰る</a>

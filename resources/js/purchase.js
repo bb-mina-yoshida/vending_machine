@@ -77,6 +77,8 @@ $('#purchase').on('click', function () {
         success: function (response) {
             alert('購入しました。');
         },
+        
+        
         error: function (xhr, status, error) {
             alert('購入に失敗しました。');
         }
