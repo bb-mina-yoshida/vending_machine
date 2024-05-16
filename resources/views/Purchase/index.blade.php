@@ -12,7 +12,6 @@
 @vite(['resources/js/purchase.js'])
 @vite(['resources/css/common.css'])
 
-
 <div class="back-color">
     <div class="back">
         <a class="btn-common" href="/">帰る</a>
@@ -108,3 +107,4 @@
         <a class="btn-red" id="purchase">購入</a>
     </div>
 </div>
+

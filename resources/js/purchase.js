@@ -51,22 +51,23 @@ $('#purchase').on('click', function () {
 
     // 購入データを準備
     var purchaseData = {
-        items: [
-            {
-                id: 1,
-                quantity: parseInt($('#kaifuku-num').val(), 10) 
-            },
-            {
-                id: 2,
-                quantity: parseInt($('#yakusou-num').val(), 10) 
-            },
-            {
-                id: 3,
-                quantity: parseInt($('#dokukeshi-num').val(), 10) 
-            }
-        ]
+        purchaseData: {
+            items: [
+                {
+                    id: 1,
+                    quantity: parseInt($('#kaifuku-num').val(), 10) 
+                },
+                {
+                    id: 2,
+                    quantity: parseInt($('#yakusou-num').val(), 10) 
+                },
+                {
+                    id: 3,
+                    quantity: parseInt($('#dokukeshi-num').val(), 10) 
+                }
+            ]
+        }
     };
-    
 
     // Ajaxリクエストを送信
     $.ajax({
@@ -76,8 +77,12 @@ $('#purchase').on('click', function () {
         success: function (response) {
             alert('購入しました。');
         },
+        
+        
         error: function (xhr, status, error) {
             alert('購入に失敗しました。');
         }
     });
 });
+
+
