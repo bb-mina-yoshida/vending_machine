@@ -1,7 +1,11 @@
+{{-- 共通CSS、JS読み込み --}}
 @vite('resources/css/common.css')
+@vite('resources/js/stock.js')
 
+{{-- 在庫補充画面 --}}
 <div class="back-color">
 
+    {{-- 画面遷移ボタン --}}
     <div class="back">
         <a class="btn-common" href="/Purchase">戻る</a>
     </div>
@@ -11,6 +15,7 @@
     </div>
     <div class="item-purchase" style="margin-top: 10px">
 
+    {{-- 在庫補充表 --}}
     <table class="table">
         <thead>
             <tr>
@@ -74,13 +79,9 @@
     <a class="btn-red" id="update">更新</a>
 </div>
 
-<!-- Bootstrap CSS -->
+{{-- Bootstrap、jQueryを使用するためのリンク --}}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-<!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-@vite('resources/js/stock.js')
+

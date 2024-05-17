@@ -7,23 +7,30 @@ use App\Models\Stock;
 
 class StockController extends Controller
 {
+    // 在庫TBLの在庫数カラムを取得し、購入画面に渡す
     public function index()
     {
-        $stocks = Stock::all(); // すべてのstockレコードを取得
+        // すべてのstockレコードを取得
+        $stocks = Stock::all(); 
         return view('Purchase.index', ['stocks' => $stocks]);
     }
 
-    // StockController.php
+
+    // Ajaxのリクエストで受け取った在庫数を更新
     public function purchase(Request $request)
     {
-        $totalPrice = $request->totalPrice;
         $stocks = $request->stock;
 
-        // 各商品の在庫数を更新
+        // 繰り返し、各商品の在庫数を更新
         foreach ($stocks as $stock) {
+
+            // bladeで指定した在庫idと一致するデータを検索
             $product = Stock::find($stock['id']);
+
+            // 指定した数量だけ在庫を減らし、更新
             $product->stock_num -= $stock['quantity'];
             $product->save();
+            
         }
 
         return response()->json(['success' => true]);

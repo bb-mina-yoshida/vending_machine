@@ -1,27 +1,26 @@
+{{-- CSRFトークン --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+{{-- 共通CSS、JS読み込み --}}
 @vite(['resources/js/purchase.js'])
 @vite(['resources/css/common.css'])
 
+{{-- 購入履歴画面 --}}
 <div class="back-color">
+
+      {{-- 画面遷移ボタン --}}
     <div class="back">
         <a class="btn-common" href="/">帰る</a>
         <a class="btn-common" href="/Stock">在庫補充して</a>
         <a class="btn-common" href="/BuyHistory">購入履歴</a>
     </div>
+
     <div class="Purchase" style="margin-top: 20px">
         <label class="title">購入画面</label>
     </div>
     <div class="item-purchase" style="margin-top: 10px">
+
+        {{-- 購入表 --}}
         <table class="table">
             <thead>
                 <tr>
@@ -37,11 +36,18 @@
                     <td>1</td>
                     <td>回復薬</td>
                     <td data-price="250">250</td>
+                    {{-- 在庫TBLから在庫数カラムを表示 --}}
                     @foreach ($stocks as $stock)
                         @if ($stock->id === 1)
-                            <td>{{ $stock->stock_num }}</td>
+                            <td>{{ $stock->stock_num}}</td>
                         @endif
                     @endforeach
+                    {{-- quantityで在庫数の更新が反映されるようにしたい。。。
+                    @foreach ($stocks as $stock)
+                        @if ($stock->id === 1)
+                            <td>{{ $stock->quantity }}</td>
+                        @endif
+                    @endforeach --}}
                     <td>
                         <select class="form-control" id="kaifuku-num">
                             <option>0</option>
@@ -102,9 +108,13 @@
     <label>残金</label>
     <input id="remaining-amount" class="col-2 form-control text-int" type="text" readonly>
 
-
+    {{-- 購入ボタン --}}
     <div class="purchase" style="margin-top: 10px">
         <a class="btn-red" id="purchase">購入</a>
     </div>
 </div>
 
+{{-- Bootstrap、jQueryを使用するためのリンク --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
